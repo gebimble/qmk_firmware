@@ -20,45 +20,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   /* Level 1: Numbers Layer
      * ,---------------------------------------------------------------------------------------.
-     * |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   0   |  DEL  |
+     * |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   0   |  TRNS |
      * |---------------------------------------------------------------------------------------|
-     * |  TAB  |   {   |   }   |   [   |   ]   |  TRNS |   -   |   =   |  TRNS |  TRNS |  TRNS |
+     * |  TAB  |   [   |   ]   |  TRNS |  TRNS |  TRNS |   -   |   =   |  TRNS |  TRNS |  TRNS |
      * |---------------------------------------------------------------------------------------|
-     * |   \   |   `   |  GUI  |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |   #   |   /   |
+     * |   \   |   `   |  GUI  |   #   |   /   |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |
      * |---------------------------------------------------------------------------------------|
      */
   [1] = LAYOUT_ortho_3x11(
-    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_DEL,
-    KC_TAB,  KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, _______, KC_MINS, KC_EQL,  _______, _______, _______,
-    KC_NUBS, KC_GRV,  KC_LGUI, _______, _______, _______, _______, _______, _______, KC_NUHS, KC_SLSH
+    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    KC_TAB,  KC_LBRC, KC_RBRC, _______, _______, _______, KC_MINS, KC_EQL,  _______, _______, _______,
+    KC_NUBS, KC_GRV,  KC_LGUI, KC_NUBS, KC_SLSH, _______, _______, _______, _______, _______, _______
   ),
   /* Level 2: Symbols Layer
      * ,---------------------------------------------------------------------------------------.
-     * |   !   |   "   |   £   |   $   |   %   |   ^   |   &   |   *   |   -   |   +   |   =   |
+     * |   !   |   "   |   £   |   $   |   %   |   ^   |   &   |   *   |   -   |   +   |  DEL  |
      * |---------------------------------------------------------------------------------------|
-     * |   {   |   }   |   [   |   ]   |  TRNS |  TRNS |   \   |   #   |   _   |   `   |   ?   |
+     * |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |   _   |   +   |   {   |   }   |   '   |
      * |---------------------------------------------------------------------------------------|
-     * |  LSFT |  LCTL |   L   |   T   |       |  TAB  |   N   |  TRNS |  TRNS |  RCTL |  TRNS |
+     * |  TRNS |  TRNS |  TRNS |  SHFT |  ALT  |  TAB  |   N   |   |   |   ¬   |   ~   |   @   |
      * |---------------------------------------------------------------------------------------|
      */
   [2] = LAYOUT_ortho_3x11(
-    KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_PLUS, KC_EQL,
-    KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, _______, _______, KC_NUBS, KC_NUHS, KC_UNDS, KC_GRV,  KC_QUOT,
-    KC_LSFT, KC_LCTL, KC_L,    KC_T,    _______, KC_TAB,  KC_N,    _______, _______, KC_RCTL, _______
+    KC_EXLM, KC_DQT,  KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_PLUS, KC_DEL,
+    _______, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_QUOT,
+    _______, _______, _______, KC_LSFT, KC_LALT, KC_TAB,  KC_ESC,  KC_PIPE, _______, KC_TILD, KC_AT)
   ),
   /* Level 3: RGB Layer
      * ,---------------------------------------------------------------------------------------.
-     * | RESET |  TRNS |  TRNS |  TRNS |  TRNS |   F1  |   F2  |   F3  |   F4  |   F5  |   F6  |
+     * | RESET |RGB_MOD|RGB_HUI|RGB_HUD|   NO  |   F1  |   F2  |   F3  |   F4  |   F5  |   F6  |
      * |---------------------------------------------------------------------------------------|
-     * |RGB_TOG|RGB_MOD|RGB_HUI|RGB_HUD|   NO  |RGB_SAI|RGB_SAD|RGB_VAI|RGB_VAD|  TRNS |  TRNS |
+     * |RGB_TOG|  HOME |  PGUP |  PGDN |  END  |  LEFT |  DOWN |   UP  | RIGHT |  TRNS |  TRNS |
      * |---------------------------------------------------------------------------------------|
-     * |  CAPS |  TRNS |  TRNS |  TRNS |       |   F7  |   F8  |   F9  |  F10  |  F11  |  F12  |
+     * |  CAPS |RGB_SAI|RGB_SAD|RGB_VAI|RGB_VAD|   F7  |   F8  |   F9  |  F10  |  F11  |  F12  |
      * |---------------------------------------------------------------------------------------|
      */
   [3] = LAYOUT_ortho_3x11(
-    RESET,   _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
-    RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, KC_NO,   RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, _______, _______,
-    KC_CAPS, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12
+    RESET,   RGB_MOD, RGB_HUI, RGB_HUD, _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+    RGB_TOG, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+    KC_CAPS, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12
   )
 };
 
