@@ -14,9 +14,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      */
   [0] = LAYOUT_ortho_3x11(
-    KC_Q,        KC_W, KC_E,       KC_R,       KC_T, KC_Y, KC_U,       KC_I,       KC_O,    KC_P,          KC_BSPC,
-    LT(2, KC_A), KC_S, LALT(KC_D), LCTL(KC_F), KC_G, KC_H, RCTL(KC_J), RALT(KC_K), KC_L,    SFT_T(KC_SPC), LT(1, KC_SCLN),
-    LT(3, KC_Z), KC_X, KC_C,       KC_V,       KC_B, KC_N, KC_M,       KC_COMM,    KC_DOT,  KC_SLSH,       KC_ENT)
+    KC_Q,        KC_W, KC_E,         KC_R,         KC_T, KC_Y, KC_U,         KC_I,         KC_O,    KC_P,          KC_BSPC,
+    LT(2, KC_A), KC_S, LALT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, RCTL_T(KC_J), RALT_T(KC_K), KC_L,    SFT_T(KC_SPC), LT(1, KC_SCLN),
+    KC_Z,        KC_X, KC_C,         KC_V,         KC_B, KC_N, KC_M,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(3, KC_ENT)
   ),
   /* Level 1: Numbers Layer
      * ,---------------------------------------------------------------------------------------.
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_ortho_3x11(
     KC_EXLM, KC_DQT,  KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_PLUS, KC_DEL,
     _______, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_QUOT,
-    _______, _______, _______, KC_LSFT, KC_LALT, KC_TAB,  KC_ESC,  KC_PIPE, _______, KC_TILD, KC_AT)
+    _______, _______, _______, KC_LSFT, KC_LALT, KC_TAB,  KC_ESC,  KC_PIPE, _______, KC_TILD, KC_AT
   ),
   /* Level 3: RGB Layer
      * ,---------------------------------------------------------------------------------------.
