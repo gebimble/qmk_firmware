@@ -10,10 +10,7 @@ enum miuni32_layers {
 
 enum miuni32_keycodes {
   QWERTY = SAFE_RANGE,
-  WORKMAN,
-  NUMBERS,
-  SYMBOLS,
-  ADJUST
+  WORKMAN
 };
 
 #define _______ KC_TRNS
@@ -30,23 +27,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      */
   [_QWERTY] = LAYOUT_ortho_3x11(
-    KC_Q,              KC_W, KC_E,         KC_R,         KC_T, KC_Y, KC_U,         KC_I,         KC_O,    KC_P,          KC_BSPC,
-    LT(SYMBOLS, KC_A), KC_S, LALT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, RCTL_T(KC_J), RALT_T(KC_K), KC_L,    SFT_T(KC_SPC), LT(NUMBERS, KC_SCLN),
-    SFT_T(KC_Z),       KC_X, KC_C,         KC_V,         KC_B, KC_N, KC_M,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(ADJUST3, KC_ENT)
+    KC_Q,               KC_W, KC_E,         KC_R,         KC_T, KC_Y, KC_U,         KC_I,         KC_O,    KC_P,          KC_BSPC,
+    LT(_SYMBOLS, KC_A), KC_S, LALT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, RCTL_T(KC_J), RALT_T(KC_K), KC_L,    SFT_T(KC_SPC), LT(_NUMBERS, KC_SCLN),
+    SFT_T(KC_Z),        KC_X, KC_C,         KC_V,         KC_B, KC_N, KC_M,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(_ADJUST, KC_ENT)
   ),
     /* Workman
      * ,---------------------------------------------------------------------------------------.
-     * |   Q   |   W   |   E   |   R   |   T   |   Y   |   U   |   I   |   O   |   P   |  BSP  |
+     * |   Q   |   D   |   R   |   W   |   B   |   J   |   F   |   U   |   P   |   ;   |  BSP  |
      * |---------------------------------------------------------------------------------------|
-     * |LT(2|A)|   S   | ALT/D | CTL/F |   G   |   H   | CTL/J | ALT/K |   L   |SHF/SPC|LT(1|;)|
+     * |LT(2|A)|   S   | ALT/H | CTL/T |   G   |   Y   | CTL/N | ALT/E |   O   |SHF/SPC|LT(1|I)|
      * |---------------------------------------------------------------------------------------|
-     * | SHF/Z |   X   |   C   |   V   |   B   |   N   |   M   |   ,   |   .   |   /   |LTENT  |
+     * | SHF/Z |   X   |   M   |   C   |   V   |   K   |   L   |   ,   |   .   |   /   |LTENT  |
      * |---------------------------------------------------------------------------------------|
      */
   [_WORKMAN] = LAYOUT_ortho_3x11(
-    KC_Q,              KC_W, KC_E,         KC_R,         KC_T, KC_Y, KC_U,         KC_I,         KC_O,    KC_P,          KC_BSPC,
-    LT(SYMBOLS, KC_A), KC_S, LALT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, RCTL_T(KC_J), RALT_T(KC_K), KC_L,    SFT_T(KC_SPC), LT(NUMBERS1, KC_SCLN),
-    SFT_T(KC_Z),       KC_X, KC_C,         KC_V,         KC_B, KC_N, KC_M,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(ADJUST, KC_ENT)
+    KC_Q,               KC_D, KC_R,         KC_W,         KC_B, KC_J, KC_F,         KC_U,         KC_P,    KC_SCLN,       KC_BSPC,
+    LT(_SYMBOLS, KC_A), KC_S, LALT_T(KC_H), LCTL_T(KC_T), KC_G, KC_Y, RCTL_T(KC_N), RALT_T(KC_E), KC_O,    SFT_T(KC_SPC), LT(_NUMBERS, KC_I),
+    SFT_T(KC_Z),        KC_X, KC_M,         KC_C,         KC_V, KC_K, KC_L,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(_ADJUST, KC_ENT)
   ),
   /* Numbers Layer
      * ,---------------------------------------------------------------------------------------.
@@ -86,9 +83,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      */
   [_ADJUST] = LAYOUT_ortho_3x11(
-    RESET,   RGB_MOD, RGB_HUI, RGB_HUD, _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+    RESET,   RGB_MOD, RGB_HUI, RGB_HUD, _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,
     RGB_TOG, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, WORKMAN, QWERTY,
-    KC_CAPS, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12
+    KC_CAPS, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12
   )
 };
 
@@ -114,6 +111,21 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case QWERTY:
+      if (record->event.pressed) {
+        print("mode just switched to qwerty and this is a huge string\n");
+        set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case WORKMAN:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_WORKMAN);
+      }
+      return false;
+      break;
+  }
   return true;
 }
 
