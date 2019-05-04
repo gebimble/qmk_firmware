@@ -27,9 +27,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      */
   [_QWERTY] = LAYOUT_ortho_3x11(
-    KC_Q,               KC_W, KC_E,         KC_R,         KC_T, KC_Y, KC_U,         KC_I,         KC_O,    KC_P,          KC_BSPC,
-    LT(_SYMBOLS, KC_A), KC_S, LALT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, RCTL_T(KC_J), RALT_T(KC_K), KC_L,    SFT_T(KC_SPC), LT(_NUMBERS, KC_SCLN),
-    SFT_T(KC_Z),        KC_X, KC_C,         KC_V,         KC_B, KC_N, KC_M,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(_ADJUST, KC_ENT)
+    KC_Q,               KC_W, KC_E,         KC_R,         KC_T, KC_Y, KC_U,         KC_I,         KC_O,   KC_P,          KC_BSPC,
+    LT(_SYMBOLS, KC_A), KC_S, LALT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, RCTL_T(KC_J), RALT_T(KC_K), KC_L,   SFT_T(KC_SPC), LT(_NUMBERS, KC_SCLN),
+    SFT_T(KC_Z),        KC_X, KC_C,         KC_V,         KC_B, KC_N, KC_M,         KC_COMM,      KC_DOT, KC_SLSH,       LT(_ADJUST, KC_ENT)
   ),
     /* Workman
      * ,---------------------------------------------------------------------------------------.
@@ -41,9 +41,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      */
   [_WORKMAN] = LAYOUT_ortho_3x11(
-    KC_Q,               KC_D, KC_R,         KC_W,         KC_B, KC_J, KC_F,         KC_U,         KC_P,    KC_SCLN,       KC_BSPC,
-    LT(_SYMBOLS, KC_A), KC_S, LALT_T(KC_H), LCTL_T(KC_T), KC_G, KC_Y, RCTL_T(KC_N), RALT_T(KC_E), KC_O,    SFT_T(KC_SPC), LT(_NUMBERS, KC_I),
-    SFT_T(KC_Z),        KC_X, KC_M,         KC_C,         KC_V, KC_K, KC_L,         KC_COMM,      KC_DOT,  KC_SLSH,       LT(_ADJUST, KC_ENT)
+    KC_Q,               KC_D, KC_R,         KC_W,         KC_B, KC_J, KC_F,         KC_U,         KC_P,   KC_SCLN,       KC_BSPC,
+    LT(_SYMBOLS, KC_A), KC_S, LALT_T(KC_H), LCTL_T(KC_T), KC_G, KC_Y, RCTL_T(KC_N), RALT_T(KC_E), KC_O,   SFT_T(KC_SPC), LT(_NUMBERS, KC_I),
+    SFT_T(KC_Z),        KC_X, KC_M,         KC_C,         KC_V, KC_K, KC_L,         KC_COMM,      KC_DOT, KC_SLSH,       LT(_ADJUST, KC_ENT)
   ),
   /* Numbers Layer
      * ,---------------------------------------------------------------------------------------.
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUMBERS] = LAYOUT_ortho_3x11(
     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
     KC_TAB,  KC_LBRC, KC_RBRC, _______, _______, _______, KC_MINS, KC_EQL,  _______, _______, _______,
-    KC_NUBS, KC_GRV,  KC_LGUI, KC_NUBS, KC_SLSH, _______, _______, _______, _______, _______, _______
+    KC_NUBS, KC_GRV,  KC_LGUI, KC_NUHS, KC_SLSH, _______, _______, _______, _______, _______, _______
   ),
   /* Symbols Layer
      * ,---------------------------------------------------------------------------------------.
@@ -65,13 +65,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      * |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |  TRNS |   _   |   +   |   {   |   }   |   '   |
      * |---------------------------------------------------------------------------------------|
-     * |  TRNS |  TRNS |  TRNS |  SHFT |  ALT  |  TAB  |   N   |   |   |   ¬   |   ~   |   @   |
+     * |  TRNS |  TRNS |  TRNS |  SHFT |  ALT  |  TAB  |  ESC  |   |   |   ¬   |   ~   |   @   |
      * |---------------------------------------------------------------------------------------|
      */
   [_SYMBOLS] = LAYOUT_ortho_3x11(
-    KC_EXLM, KC_DQT,  KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
-    _______, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_QUOT,
-    _______, _______, _______, KC_LSFT, KC_LALT, KC_TAB,  KC_ESC,  KC_PIPE, _______, KC_TILD, KC_AT
+    KC_EXLM, LSFT(KC_2), LSFT(KC_3), KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR,       KC_LPRN,      KC_RPRN, KC_DEL,
+    _______, _______,    _______,    _______, _______, _______, KC_UNDS, KC_PLUS,       KC_LCBR,      KC_RCBR, KC_QUOT,
+    _______, _______,    _______,    KC_LSFT, KC_LALT, KC_TAB,  KC_ESC,  LSFT(KC_NUBS), LSFT(KC_GRV), KC_TILD, LSFT(KC_QUOT)
   ),
   /* Level 3: RGB Layer
      * ,---------------------------------------------------------------------------------------.
