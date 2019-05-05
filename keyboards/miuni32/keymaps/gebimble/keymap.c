@@ -69,9 +69,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------------------------------------|
      */
   [_SYMBOLS] = LAYOUT_ortho_3x11(
-    KC_EXLM, LSFT(KC_2), LSFT(KC_3), KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR,       KC_LPRN,      KC_RPRN, KC_DEL,
-    _______, _______,    _______,    _______, _______, _______, KC_UNDS, KC_PLUS,       KC_LCBR,      KC_RCBR, KC_QUOT,
-    _______, _______,    _______,    _______, _______, _______, _______, LSFT(KC_NUBS), LSFT(KC_GRV), KC_TILD, LSFT(KC_QUOT)
+    KC_EXLM, LSFT(KC_2), LSFT(KC_3), KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR,       KC_LPRN,      KC_RPRN,       KC_DEL,
+    _______, _______,    _______,    _______, _______, _______, KC_UNDS, KC_PLUS,       KC_LCBR,      KC_RCBR,       KC_QUOT,
+    _______, _______,    _______,    _______, _______, _______, _______, LSFT(KC_NUBS), LSFT(KC_GRV), LSFT(KC_TILD), LSFT(KC_QUOT)
   ),
   /* Level 3: RGB Layer
      * ,---------------------------------------------------------------------------------------.
