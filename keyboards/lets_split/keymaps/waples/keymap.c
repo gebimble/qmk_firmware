@@ -25,8 +25,6 @@ enum letssplit_keycodes {
 #define TG_NKRO MAGIC_TOGGLE_NKRO     // Toggle NKRO
 #define CTLESC MT(MOD_LCTL, KC_ESC)    // Hold for left Ctrl, tap for Esc
 #define SHFTENT MT(MOD_RSFT, KC_ENT)    // Hold for right Shift, tap for Enter
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -66,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_DUAL] =  LAYOUT( \
-  RESET,   _______, _______, _______, _______, QWERTY,  GAME,    _______, _______, _______, _______, RESET, \
+  QK_BOOT, _______, _______, _______, _______, QWERTY,  GAME,    _______, _______, _______, _______, QK_BOOT, \
   _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, AG_NORM, AG_SWAP, _______, _______, _______, _______, _______, \
   _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, TG_NKRO, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, DVORAK,  _______, _______, _______, _______, _______ \

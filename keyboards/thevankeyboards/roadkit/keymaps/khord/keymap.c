@@ -6,10 +6,6 @@ extern keymap_config_t keymap_config;
 #define _L1 1
 #define _L2 2
 
-// Fillers to make layering more clear
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
-
 enum custom_keycodes {
   NUMPAD = SAFE_RANGE,
   ADMIN,
@@ -51,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-----`-----`-----`-----'
    */
   [_L1] = LAYOUT_ortho_4x4( /* LAYER 1 */
-    RESET,   XXXXXXX, XXXXXXX, KC_DEL, \
+    QK_BOOT, XXXXXXX, XXXXXXX, KC_DEL, \
     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, \
     STR192,  STR255,  XXXXXXX, XXXXXXX, \
     _______, BL_STEP, _______, XXXXXXX
