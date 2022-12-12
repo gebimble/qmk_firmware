@@ -40,21 +40,6 @@ On the other side of the board, in homage to my long-term love of the Zeal60,
 I've put 'grave' ('`') on the far left. Normally your pinky would hit a shift first,
 but, once again, these live under the thumbs.
 
-Now, unlike `rpbaptist`, I'm a right thumb space lover.
-The problem, however, is that I would quite like to have enter there too.
-In reality this isn't **awful**, because I've elected to place enter on the NUMPAD layer.
-Yeah, okay, this is a bit weird. My thinking is that it's a handy thing to have in a numpad,
-as occasionally one may be forced to type out a large number of newline-delimited numerical sequences,
-and moving back to the default layer to do so every time would become a pain.
-The downside, of course, is that you have to change to the numpad layer every time you want to hit enter.
-Some would argue that I'm prioritising an edge case to spite myself,
-and you might be right. I'll figure it out properly later ;)
-
-I've fiddled around with the thumbs a little, but not much.
-Like I said earlier, I like the space under the right thumb. So what goes on the left thumb?
-TAB. I don't know why, but the idea of having a tab under the left thumb just feels... right?
-Let's see how that goes.
-
 Everything else I've left alone (which is a bit like saying "I demolished the house, but other than I didn't do anything.")
 
 To summarise:
