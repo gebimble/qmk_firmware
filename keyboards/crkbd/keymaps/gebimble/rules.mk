@@ -21,7 +21,8 @@ UNICODE_ENABLE     = no   # Unicode
 BLUETOOTH_ENABLE   = no   # Enable Bluetooth with the Adafruit EZ-Key HID
 SWAP_HANDS_ENABLE  = no   # Enable one-hand typing
 
-RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_ENABLE = no
+# RGB_MATRIX_ENABLE = yes
 
 #Do not enable SLEEP_LED_ENABLE.it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE   = no    # Breathing sleep LED during USB suspend
