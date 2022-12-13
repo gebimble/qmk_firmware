@@ -25,7 +25,10 @@ enum custom_keycodes {
     RGB_SOL,  // RGB_MATRIX_SOLID_COLOR
     RGB_CYC,  // RGB_MATRIX_CYCLE_ALL
     RGB_DUO,  // RGB_MATRIX_RAINBOW_PINWHEELS
-    RGB_SCR   // RGB_MATRIX_CYCLE_LEFT_RIGHT
+    RGB_SCR,  // RGB_MATRIX_CYCLE_LEFT_RIGHT
+    JMOP,
+    MMAN,
+    WPA
 };
 
 typedef union {
@@ -56,7 +59,7 @@ user_config_t user_config;
 
 // Layer keys with functionality on tap
 #define NAV_0 LT(_NAV, KC_0)
-#define A_NUM LT(_NUMPAD, KC_A)
+#define BS_NUM LT(_NUMPAD, KC_NUBS)
 
 // Tap/mod keys
 #define RCTL_BR RCTL_T(KC_RBRC)
@@ -83,11 +86,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, BSP_DEL,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      TAB_CTL,   A_NUM,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
+      TAB_CTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NUBS,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
+       BS_NUM,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,   T_SYM, SFT_SPC,    SFT_ENT,   T_NAV, KC_LGUI \
+                                          KC_LALT,   T_SYM,KC_SPACE,    SFT_ENT,   T_NAV, KC_LGUI \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -95,23 +98,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P, KC_SCLN, BSP_DEL,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,   A_NUM,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT,\
+      KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NUBS,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
+       BS_NUM,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,   T_SYM, SFT_SPC,    SFT_SPC,   T_NAV, KC_LGUI \
+                                          KC_LALT,   T_SYM,KC_SPACE,    SFT_SPC,   T_NAV, KC_LGUI \
                                       //`--------------------------'  `--------------------------'
   ),
 
   [_NUMPAD] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   KC_P7,   KC_P8,   KC_P9, XXXXXXX, _______,\
+      _______, XXXXXXX, XXXXXXX,    JMOP,    MMAN,     WPA,                      XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, _______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_PPLS,\
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_PPLS,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NUM,                        KC_EQL,   KC_P1,   KC_P2,   KC_P3, KC_PSLS, KC_PAST,\
+      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NUM,                        KC_EQL,    KC_1,    KC_2,    KC_3, KC_PSLS, KC_PAST,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,   KC_ENTER,   KC_P0,  KC_DOT \
+                                          _______, _______, _______,   KC_ENTER,    KC_0,  KC_DOT \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -547,6 +550,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 #endif
+        case JMOP:
+            if (record->event.pressed) {
+                SEND_STRING("J03th3m0p!");
+            }
+            break;
+        case MMAN:
+            if (record->event.pressed) {
+                SEND_STRING("M@g1cmaan!");
+            }
+            break;
+        case WPA:
+            if (record->event.pressed) {
+                SEND_STRING("It'llb3amiracle!");
+            }
+            break;
     }
     return true;
 }
