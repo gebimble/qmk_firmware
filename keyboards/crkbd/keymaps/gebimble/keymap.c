@@ -28,7 +28,9 @@ enum custom_keycodes {
     RGB_SCR,  // RGB_MATRIX_CYCLE_LEFT_RIGHT
     JMOP,
     MMAN,
-    WPA
+    WPA,
+    EMAIL,
+    WMAIL
 };
 
 typedef union {
@@ -59,7 +61,7 @@ user_config_t user_config;
 
 // Layer keys with functionality on tap
 #define NAV_0 LT(_NAV, KC_0)
-#define BS_NUM LT(_NUMPAD, KC_NUBS)
+#define ESC_NUM LT(_NUMPAD, KC_ESC)
 
 // Tap/mod keys
 #define RCTL_BR RCTL_T(KC_RBRC)
@@ -69,6 +71,7 @@ user_config_t user_config;
 
 #define SFT_ENT LSFT_T(KC_ENTER)
 #define SFT_SPC RSFT_T(KC_SPACE)
+#define SFT_BSL LSFT_T(KC_NUBS)
 
 // Global tab forward and backward
 #define TAB_FWD LCTL(KC_TAB)
@@ -84,11 +87,11 @@ user_config_t user_config;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, BSP_DEL,\
+      ESC_NUM,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, BSP_DEL,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       TAB_CTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       BS_NUM,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
+      SFT_BSL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LALT,   T_SYM,KC_SPACE,    SFT_ENT,   T_NAV, KC_LGUI \
                                       //`--------------------------'  `--------------------------'
@@ -96,11 +99,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_WORKMAN] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P, KC_SCLN, BSP_DEL,\
+      ESC_NUM,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,    KC_P, KC_SCLN, BSP_DEL,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       BS_NUM,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
+      SFT_BSL,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LALT,   T_SYM,KC_SPACE,    SFT_SPC,   T_NAV, KC_LGUI \
                                       //`--------------------------'  `--------------------------'
@@ -110,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, XXXXXXX, XXXXXXX,    JMOP,    MMAN,     WPA,                      XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, _______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_PPLS,\
+      _______, XXXXXXX, XXXXXXX,   EMAIL, XXXXXXX,   WMAIL,                      KC_UNDS,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_PPLS,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NUM,                        KC_EQL,    KC_1,    KC_2,    KC_3, KC_PSLS, KC_PAST,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -555,14 +558,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("J03th3m0p!");
             }
             break;
+        case EMAIL:
+            if (record->event.pressed) {
+                SEND_STRING("joseph.beaver\"gmail.com");
+            }
+            break;
         case MMAN:
             if (record->event.pressed) {
-                SEND_STRING("M@g1cmaan!");
+                SEND_STRING("M\"g1cm44n!");
             }
             break;
         case WPA:
             if (record->event.pressed) {
                 SEND_STRING("It'llb3amiracle!");
+            }
+            break;
+        case WMAIL:
+            if (record->event.pressed) {
+                SEND_STRING("joseph.beaver\"rolls-royce.com");
             }
             break;
     }
