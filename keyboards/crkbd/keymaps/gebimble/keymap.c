@@ -91,9 +91,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       TAB_CTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      SFT_BSL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
+      KC_NUBS,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,   T_SYM,KC_SPACE,    SFT_ENT,   T_NAV, KC_LGUI \
+                                          KC_LALT,   T_SYM, SFT_SPC,    SFT_ENT,   T_NAV, KC_LGUI \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -103,9 +103,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,                         KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      SFT_BSL,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
+      KC_NUBS,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM,  KC_DOT, KC_SLSH,  KC_GRV,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,   T_SYM,KC_SPACE,    SFT_SPC,   T_NAV, KC_LGUI \
+                                          KC_LALT,   T_SYM, SFT_SPC,    SFT_SPC,   T_NAV, KC_LGUI \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -442,6 +442,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint16_t       temp_keycode = keycode;
 
     oled_timer = timer_read32();
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case (SFT_SPC):
+            return TAPPING_TERM + 1250;
+    }
+}
 
 #ifdef RGB_MATRIX_ENABLE
     if (user_config.rgb_matrix_idle_anim) {
